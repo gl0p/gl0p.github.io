@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gl0p - Solutions Engineer & Builder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #888;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .contact-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s;
+            background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+            border-color: #667eea;
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .project-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .skills-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-category li:before {
+            content: "▸";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gl0p</h1>
+            <p class="subtitle">Solutions Engineer & Full-Stack Builder</p>
+            <p class="tagline">I architect and ship AI-powered products using modern tools. From visual ML pipelines to enterprise document search, I turn complex problems into working solutions.</p>
+            <div class="contact-links">
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                <a href="mailto:your.email@example.com">Email Me</a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Tanalio</h3>
+                    <p>Visual deep learning workflow builder. Drag-and-drop nodes to construct, train, and test ML models without writing boilerplate code. Features real-time training visualization and modular architecture.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">WebSockets</span>
+                    </div>
+                    <a href="https://github.com/gl0p/tanalio" class="project-link" target="_blank">View Project →</a>
+                </div>
+
+                <div class="project-card">
+                    <h3>FOCUS</h3>
+                    <p>AI-powered task breakdown assistant for people with ADHD. Recursively decomposes goals into actionable steps using local LLMs (Ollama) with web search integration for context-aware guidance.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Ollama</span>
+                        <span class="tech-tag">Web Scraping</span>
+                        <span class="tech-tag">LLM</span>
+                    </div>
+                    <!-- <a href="https://github.com/yourusername/focus" class="project-link" target="_blank">View Project →</a> -->
+                </div>
+
+                <div class="project-card">
+                    <h3>vahub</h3>
+                    <p>Enterprise document search platform using RAG (Retrieval Augmented Generation). Employees can query company documents instantly instead of searching through hundreds of pages.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">Async JS</span>
+                        <span class="tech-tag">Document Processing</span>
+                    </div>
+                    <!-- <a href="https://vahub.ca" class="project-link" target="_blank">Live Demo →</a> -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Technical Skills</h2>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3>Backend & AI</h3>
+                    <ul>
+                        <li>Python (Flask, FastAPI)</li>
+                        <li>PyTorch & ML Pipelines</li>
+                        <li>Local LLMs (Ollama)</li>
+                        <li>RAG & Document Processing</li>
+                        <li>OpenAI API Integration</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>React & Vite</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>HTML5 Canvas</li>
+                        <li>WebSockets & Real-time</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Systems & Tools</h3>
+                    <ul>
+                        <li>System Architecture</li>
+                        <li>API Design & Integration</li>
+                        <li>Web Scraping</li>
+                        <li>Git & Version Control</li>
+                        <li>AI-Assisted Development</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Other Tech</h3>
+                    <ul>
+                        <li>Embedded Systems (C/C++)</li>
+                        <li>Hardware Integration</li>
+                        <li>PostgreSQL & Data</li>
+                        <li>Deployment & Hosting</li>
+                        <li>Graph Algorithms</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What I Do Best</h2>
+            <div class="skills-list">
+                <div class="skill-category">
+                    <h3>Systems Thinking</h3>
+                    <ul>
+                        <li>Design modular, scalable architectures</li>
+                        <li>Break down complex problems into manageable pieces</li>
+                        <li>Identify technical solutions to business problems</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Rapid Prototyping</h3>
+                    <ul>
+                        <li>Build working MVPs in weeks, not months</li>
+                        <li>Leverage AI tools to accelerate development</li>
+                        <li>Ship iteratively based on real needs</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Integration & APIs</h3>
+                    <ul>
+                        <li>Connect different systems together</li>
+                        <li>Build real-time communication layers</li>
+                        <li>Design clean, usable interfaces</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Built with passion for solving real problems | Open to Solutions Engineer opportunities</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Let's build something great together</p>
+        </footer>
+    </div>
+</body>
+</html>
